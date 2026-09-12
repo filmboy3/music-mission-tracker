@@ -94,15 +94,16 @@ h1 em, h2 em { color: var(--sun); font-family: Georgia, serif; font-weight: 400;
 .albums { background: var(--paper-deep); }
 .albums-heading { display: grid; grid-template-columns: 1fr 3fr; gap: 50px; }
 .album-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 70px; }
-.album-card { position: relative; min-height: 410px; padding: 24px; overflow: hidden; background: var(--ink); color: var(--paper); text-decoration: none; }
-.album-card::before { content: ""; position: absolute; width: 220px; height: 220px; right: -40px; bottom: 40px; border-radius: 50%; background: var(--album-color, var(--sun)); filter: blur(2px); opacity: .78; transition: transform .5s; }
-.album-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, transparent 35%, rgba(0,0,0,.35)); }
-.album-card:hover::before { transform: scale(1.12); }
+.album-card { position: relative; aspect-ratio: 1; min-width: 0; padding: 20px; overflow: hidden; background: var(--ink); color: var(--paper); text-decoration: none; }
+.album-artwork { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .55s ease, filter .55s ease; }
+.album-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.28), transparent 42%, rgba(0,0,0,.78)); transition: background .3s; }
+.album-card:hover .album-artwork { transform: scale(1.035); filter: saturate(1.08); }
+.album-card:hover::after { background: linear-gradient(180deg, rgba(0,0,0,.2), transparent 38%, rgba(0,0,0,.86)); }
 .album-number, .album-info { position: relative; z-index: 2; }
-.album-number { font-size: 11px; letter-spacing: .14em; opacity: .58; }
-.album-info { position: absolute; left: 24px; right: 24px; bottom: 24px; }
-.album-info strong { display: block; font: 600 24px/1.08 var(--display); }
-.album-info span { display: block; margin-top: 8px; font-size: 12px; opacity: .6; }
+.album-number { font-size: 10px; letter-spacing: .14em; text-shadow: 0 1px 12px rgba(0,0,0,.6); opacity: .72; }
+.album-info { position: absolute; left: 20px; right: 20px; bottom: 20px; text-shadow: 0 2px 18px rgba(0,0,0,.8); }
+.album-info strong { display: block; font: 600 clamp(18px, 1.7vw, 24px)/1.08 var(--display); }
+.album-info span { display: block; margin-top: 8px; font-size: 11px; opacity: .72; }
 .ledger { display: grid; grid-template-columns: 1fr 1.75fr; gap: 80px; }
 .ledger-heading h2 { font-size: clamp(48px, 5vw, 72px); }
 .ledger-heading > p { margin-top: 32px; max-width: 390px; }
@@ -152,7 +153,7 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   .hero-statement { bottom: 35px; }
   .manifesto, .albums, .ledger { padding-top: 80px; padding-bottom: 80px; }
   .album-grid { grid-template-columns: 1fr; }
-  .album-card { min-height: 340px; }
+  .album-card { min-height: 0; }
   .metric-grid { gap: 8px; }
   .metric-grid strong { font-size: 25px; }
   .ledger-table-wrap { overflow-x: auto; }

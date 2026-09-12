@@ -8,6 +8,12 @@ function safeLink(link) {
   return typeof link === "string" && /^https:\/\//.test(link) ? link : "";
 }
 
+function safeArtwork(path) {
+  return typeof path === "string" && /^(?!.*\.\.)[a-zA-Z0-9/_-]+\.(?:jpg|jpeg|png|webp)$/.test(path)
+    ? path
+    : "";
+}
+
 function render(data) {
   document.querySelectorAll("[data-artist-name]").forEach((node) => {
     node.textContent = data.artist.name;
@@ -46,17 +52,19 @@ function render(data) {
   const albumGrid = document.querySelector("#album-grid");
   data.albums.forEach((album, index) => {
     const url = safeLink(album.url);
+    const artwork = safeArtwork(album.artwork);
     const card = document.createElement(url ? "a" : "article");
     card.className = "album-card";
-    card.style.setProperty("--album-color", album.color);
     if (url) {
       card.href = url;
       card.target = "_blank";
       card.rel = "noopener noreferrer";
+      card.setAttribute("aria-label", `Listen to ${album.title} on Spotify`);
     }
     card.innerHTML = `
+      ${artwork ? `<img class="album-artwork" src="${artwork}" alt="${album.title} album cover" loading="lazy" width="1200" height="1200">` : ""}
       <span class="album-number">ALBUM ${String(index + 1).padStart(2, "0")}</span>
-      <div class="album-info"><strong>${album.title}</strong><span>${album.year || "Listen soon"}</span></div>`;
+      <div class="album-info"><strong>${album.title}</strong><span>${album.year || "Listen soon"} · Listen on Spotify ↗</span></div>`;
     albumGrid.append(card);
   });
 

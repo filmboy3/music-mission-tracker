@@ -15,10 +15,30 @@
   },
   "partners": [],
   "albums": [
-    { "title": "Album One", "year": "Chapter I", "url": "", "color": "#ff9a3d" },
-    { "title": "Album Two", "year": "Chapter II", "url": "", "color": "#e54b2f" },
-    { "title": "Album Three", "year": "Chapter III", "url": "", "color": "#bf3958" },
-    { "title": "Album Four", "year": "Chapter IV", "url": "", "color": "#9eb294" }
+    {
+      "title": "Overexposed",
+      "year": "2026",
+      "url": "https://open.spotify.com/album/2cpwHQxJzFtD1nI4JDgCJ0",
+      "artwork": "assets/albums/overexposed.jpg"
+    },
+    {
+      "title": "Burn Bright",
+      "year": "2026",
+      "url": "https://open.spotify.com/album/48YIgsJ9gmhBnem5sU1oq5",
+      "artwork": "assets/albums/burn-bright.jpg"
+    },
+    {
+      "title": "Amplify",
+      "year": "2026",
+      "url": "https://open.spotify.com/album/7g16YXhap9fma6UGDOrNir",
+      "artwork": "assets/albums/amplify.jpg"
+    },
+    {
+      "title": "Timelines",
+      "year": "2026",
+      "url": "https://open.spotify.com/album/7upA8Lj9WYGItl9zJssEVY",
+      "artwork": "assets/albums/timelines.jpg"
+    }
   ],
   "donations": []
 }
