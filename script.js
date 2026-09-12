@@ -1,9 +1,3 @@
-const money = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
-
 function safeLink(link) {
   return typeof link === "string" && /^https:\/\//.test(link) ? link : "";
 }
@@ -37,15 +31,8 @@ function render(data, stats) {
     }
   });
 
-  const total = data.donations.reduce((sum, entry) => sum + Number(entry.amount || 0), 0);
-  const goal = Number(data.goal.amount || 0);
-  const committed = Number(data.goal.committed || 0);
-  const percent = goal ? Math.min(100, Math.round((committed / goal) * 100)) : 0;
-  setText("#total-donated", money.format(total));
-  setText("#goal-current", money.format(committed));
-  setText("#goal-target", money.format(goal));
+  const percent = Math.min(100, Math.max(0, Number(data.goal.progressPercent || 0)));
   setText("#goal-percent", `${percent}%`);
-  setText("#donation-count", data.donations.length);
   setText("#partner-count", data.missionGoals.length);
   setText("#album-count", data.albums.length);
   setText("#goal-copy", data.goal.message);
@@ -96,36 +83,23 @@ function render(data, stats) {
   const missionGoalGrid = document.querySelector("#mission-goal-grid");
   data.missionGoals.forEach((item) => {
     const current = Number(item.current || 0);
-    const target = Number(item.target || 0);
-    const itemPercent = target ? Math.min(100, Math.round((current / target) * 100)) : 0;
+    const partnerUrl = safeLink(item.partnerUrl);
+    const logo = safeArtwork(item.logo);
     const card = document.createElement("article");
     card.className = "mission-goal-card";
     card.innerHTML = `
-      <div class="mission-goal-top"><span class="mission-goal-icon" aria-hidden="true">${item.icon}</span></div>
+      <div class="mission-goal-logo-wrap">
+        ${logo ? `<img class="mission-goal-logo" src="${logo}" alt="${item.partner} logo" loading="lazy">` : ""}
+      </div>
       <h3>${item.title}</h3>
-      <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong> / ${target.toLocaleString()} ${item.unit}</p>
-      <div class="mission-progress" role="progressbar" aria-label="${item.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${itemPercent}"><span style="width:${itemPercent}%"></span></div>
-      <p class="mission-goal-description">${item.description}</p>`;
+      <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong><span>${item.unit}</span></p>
+      <p class="mission-goal-description">${item.description}</p>
+      <div class="mission-goal-meta">
+        <span>Confirmed ${item.date}</span>
+        ${partnerUrl ? `<a href="${partnerUrl}" target="_blank" rel="noopener noreferrer">${item.partner} ↗</a>` : ""}
+      </div>`;
     if (missionGoalGrid) missionGoalGrid.append(card);
   });
-
-  const body = document.querySelector("#ledger-body");
-  const empty = document.querySelector("#ledger-empty");
-  if (body && empty && data.donations.length) {
-    empty.hidden = true;
-    data.donations.forEach((entry) => {
-      const proof = safeLink(entry.proof);
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${entry.date}</td><td>${entry.recipient}</td><td>${entry.period}</td>
-        <td>${money.format(entry.amount)}</td>
-        <td>${proof ? `<a href="${proof}" target="_blank" rel="noopener noreferrer">View ↗</a>` : "—"}</td>`;
-      body.append(row);
-    });
-  } else if (body && empty) {
-    const table = document.querySelector("table");
-    if (table) table.hidden = true;
-  }
 
   const social = document.querySelector("#social-links");
   Object.entries(data.links).forEach(([label, link]) => {

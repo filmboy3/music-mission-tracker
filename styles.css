@@ -97,18 +97,20 @@ h1 em, h2 em { color: var(--sun); font-family: Georgia, serif; font-weight: 400;
 .mission-goals { background: var(--paper); }
 .mission-goals-heading { display: grid; grid-template-columns: 1fr 3fr; gap: 50px; }
 .mission-goals-heading > div > p { max-width: 620px; margin: 30px 0 0; color: rgba(23,18,15,.62); line-height: 1.7; }
-.mission-goal-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 70px; }
-.mission-goal-card { grid-column: span 2; min-height: 315px; padding: 28px; border: 1px solid var(--line); background: rgba(255,255,255,.28); }
-.mission-goal-card:nth-child(4) { grid-column: 2 / span 2; }
-.mission-goal-top { display: flex; justify-content: space-between; align-items: center; }
-.mission-goal-icon { font-size: 28px; }
-.mission-goal-card h3 { margin: 42px 0 0; font: 600 25px/1.1 var(--display); letter-spacing: -.04em; }
-.mission-goal-count { margin: 13px 0 0; font-size: 14px; color: rgba(23,18,15,.52); }
-.mission-goal-count strong { color: var(--ink); font: 600 24px/1 var(--display); }
-.mission-progress { height: 4px; margin: 22px 0; overflow: hidden; border-radius: 4px; background: rgba(23,18,15,.1); }
-.mission-progress span { display: block; height: 100%; background: linear-gradient(90deg, var(--ember), var(--sun)); }
+.mission-goal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 70px; }
+.mission-goal-card { display: flex; flex-direction: column; min-height: 410px; padding: 30px; border: 1px solid var(--line); background: rgba(255,255,255,.34); }
+.mission-goal-logo-wrap { display: flex; align-items: center; height: 74px; }
+.mission-goal-logo { display: block; max-width: 180px; max-height: 68px; width: auto; height: auto; object-fit: contain; object-position: left center; }
+.mission-goal-card:nth-child(2) .mission-goal-logo { max-width: 72px; max-height: 72px; }
+.mission-goal-card h3 { margin: 34px 0 0; font: 600 24px/1.1 var(--display); letter-spacing: -.04em; }
+.mission-goal-count { margin: 14px 0 0; color: rgba(23,18,15,.58); }
+.mission-goal-count strong { display: block; color: var(--ink); font: 600 clamp(54px, 5vw, 76px)/.95 var(--display); letter-spacing: -.065em; }
+.mission-goal-count span { display: block; max-width: 240px; margin-top: 8px; font-size: 14px; line-height: 1.35; }
 .mission-goal-description { margin: 0; color: rgba(23,18,15,.58); font-size: 13px; line-height: 1.55; }
-.mission-goals .impact-dashboard { margin-top: 70px; background: var(--ink); color: var(--paper); }
+.mission-goal-meta { display: flex; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line); color: rgba(23,18,15,.48); font-size: 10px; line-height: 1.4; text-transform: uppercase; letter-spacing: .08em; }
+.mission-goal-meta a { color: var(--ink); text-decoration: none; text-align: right; }
+.mission-goals .impact-dashboard { margin-top: 28px; padding: 48px; background: var(--ink); color: var(--paper); }
+.mission-goals .goal-card { margin: 0; padding: 0; border: 0; }
 .albums { background: var(--paper-deep); }
 .albums-heading { display: grid; grid-template-columns: 1fr 3fr; gap: 50px; }
 .album-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 70px; }
@@ -158,7 +160,6 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   .albums-heading { grid-template-columns: 1fr; gap: 0; }
   .mission-goals-heading { grid-template-columns: 1fr; gap: 0; }
   .mission-goal-grid { grid-template-columns: 1fr 1fr; }
-  .mission-goal-card, .mission-goal-card:nth-child(4) { grid-column: auto; }
   .mission-goal-card:last-child { grid-column: 1 / -1; }
   .album-grid { grid-template-columns: 1fr 1fr; }
   .ledger { gap: 30px; }
@@ -180,6 +181,7 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   .manifesto, .mission-goals, .albums, .ledger { padding-top: 80px; padding-bottom: 80px; }
   .mission-goal-grid { grid-template-columns: 1fr; }
   .mission-goal-card:last-child { grid-column: auto; }
+  .mission-goals .impact-dashboard { padding: 32px 24px; }
   .album-grid { grid-template-columns: 1fr; }
   .album-card { min-height: 0; }
   .metric-grid { gap: 8px; }

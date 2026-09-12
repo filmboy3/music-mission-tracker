@@ -8,11 +8,12 @@
     <meta property="og:title" content="Jonathan Schwartz — The Mission" />
     <meta property="og:description" content="Four albums. All royalties donated. I fund the planet on behalf of every listener." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://filmboy3.github.io/music-mission-tracker/assets/FINAL_V2_Denim_Studio_Exterior_No_Pole_FACE_LOCKED_SOURCE.png" />
+    <meta property="og:image" content="https://filmboy3.github.io/music-mission-tracker/assets/hero-banner.png" />
     <title>Jonathan Schwartz — The Mission</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="assets/hero-banner.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
@@ -37,7 +38,7 @@
         <div class="orb orb-one" aria-hidden="true"></div>
         <div class="orb orb-two" aria-hidden="true"></div>
         <div class="hero-banner">
-          <img src="assets/FINAL_V2_Denim_Studio_Exterior_No_Pole_FACE_LOCKED_SOURCE.png" alt="Jonathan Schwartz outside a denim studio" class="hero-banner-img" />
+          <img src="assets/hero-banner.png" alt="Jonathan Schwartz outside a denim studio" class="hero-banner-img" fetchpriority="high" />
         </div>
         <div class="hero-inner">
           <h1 id="hero-title">Your listens<br />have <em>weight.</em></h1>
@@ -58,35 +59,25 @@
         <div class="mission-goals-heading">
           <p class="section-label">The Mission</p>
           <div>
-            <h2 id="mission-goals-title">Five goals.<br />Your engagement gets us there.</h2>
+            <h2 id="mission-goals-title">Three partners.<br />Real impact, already underway.</h2>
           </div>
-        </div>
-
-        <div class="emoji-prompt">
-          Want a say in where it goes? DM me on Instagram:<br />
-          🌊 ocean · 🌿 trees · 🌱 marine · 💧 water · 🔥 fire
         </div>
 
         <div class="mission-goal-grid" id="mission-goal-grid"></div>
 
         <div class="impact-dashboard">
-          <article class="total-card">
-            <p>Total donated so far</p>
-            <strong id="total-donated">$0</strong>
-          </article>
-
           <article class="goal-card">
             <div class="goal-topline">
               <div>
-                <p>Community mission</p>
-                <strong><span id="goal-current">$100</span> <small>committed of <span id="goal-target">$1,000</span></small></strong>
+                <p>Overall mission progress</p>
+                <strong>First round complete</strong>
               </div>
-              <span class="goal-percent" id="goal-percent">10%</span>
+              <span class="goal-percent" id="goal-percent">15%</span>
             </div>
-            <div class="progress-track" role="progressbar" aria-label="Funding commitment progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <div class="progress-track" role="progressbar" aria-label="Overall mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15">
               <span id="goal-bar"></span>
             </div>
-            <p id="goal-copy">$100 committed. Verified impact appears after the first API-confirmed donation.</p>
+            <p id="goal-copy">Three confirmed impact milestones are now on the board.</p>
           </article>
         </div>
       </section>

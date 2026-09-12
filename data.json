@@ -2,11 +2,10 @@
   "artist": {
     "name": "Jonathan Schwartz"
   },
-  "lastUpdated": "",
+  "lastUpdated": "September 12, 2026",
   "goal": {
-    "amount": 1000,
-    "committed": 100,
-    "message": "$100 committed. Verified impact appears after the first API-confirmed donation."
+    "progressPercent": 15,
+    "message": "Three confirmed impact milestones are now on the board."
   },
   "links": {
     "playlist": "",
@@ -47,45 +46,34 @@
   ],
   "missionGoals": [
     {
-      "icon": "🌊",
-      "title": "Clean the Ocean",
-      "current": 0,
-      "target": 4000,
-      "unit": "bottles",
-      "description": "Pulling plastic from coastal waterways before it reaches the sea"
+      "title": "Trees Planted",
+      "current": 50,
+      "unit": "trees planted",
+      "partner": "#TeamTrees",
+      "partnerUrl": "https://teamtrees.org/",
+      "logo": "assets/partners/team-trees.png",
+      "description": "Reforestation funded through #TeamTrees and the Arbor Day Foundation.",
+      "date": "September 12, 2026"
     },
     {
-      "icon": "🌿",
-      "title": "Plant Trees",
-      "current": 0,
-      "target": 600,
-      "unit": "trees",
-      "description": "Reforestation across ecosystems — mangroves, native forests, and more"
+      "title": "Clean Water",
+      "current": 50,
+      "unit": "people with clean water for one year",
+      "partner": "#TeamWater",
+      "partnerUrl": "https://teamwater.org/",
+      "logo": "assets/partners/team-water.png",
+      "description": "A full year of clean-water access funded for 50 people through #TeamWater.",
+      "date": "September 12, 2026"
     },
     {
-      "icon": "🌱",
-      "title": "Restore Marine Habitats",
-      "current": 0,
-      "target": 465,
-      "unit": "units",
-      "description": "Rebuilding underwater ecosystems that absorb CO₂ and support biodiversity"
-    },
-    {
-      "icon": "💧",
-      "title": "Fund Clean Water",
-      "current": 0,
-      "target": 40,
-      "unit": "people",
-      "description": "Giving people lasting access to safe drinking water"
-    },
-    {
-      "icon": "🔥",
-      "title": "Wildfire Resilience",
-      "current": 0,
-      "target": 10,
-      "unit": "acres",
-      "description": "Protecting communities through prescribed burns and fire prevention"
+      "title": "Microplastics Removed",
+      "current": 52,
+      "unit": "pounds of microplastics removed",
+      "partner": "Ocean Blue Project",
+      "partnerUrl": "https://oceanblueproject.org/",
+      "logo": "assets/partners/ocean-blue-project.png",
+      "description": "Microplastics removed from beaches, rivers, and waterways through Ocean Blue Project.",
+      "date": "September 12, 2026"
     }
-  ],
-  "donations": []
+  ]
 }
