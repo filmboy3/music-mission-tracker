@@ -5,7 +5,7 @@
   "lastUpdated": "",
   "goal": {
     "amount": 1000,
-    "message": "I'm committing $1,000 across these five goals. Progress updates with each receipt."
+    "message": "I'm committing $1,000 across five environmental goals — your engagement gets us there."
   },
   "links": {
     "playlist": "",
@@ -51,31 +51,23 @@
       "current": 0,
       "target": 4000,
       "unit": "bottles",
-      "description": "Intercepting ocean-bound plastic bottles via Plastic Bank"
+      "description": "Pulling plastic from coastal waterways before it reaches the sea"
     },
     {
       "icon": "🌿",
-      "title": "Plant Mangroves",
-      "current": 0,
-      "target": 465,
-      "unit": "trees",
-      "description": "GPS-verified mangrove restoration in Kenya and Brazil"
-    },
-    {
-      "icon": "🌲",
       "title": "Plant Trees",
       "current": 0,
-      "target": 133,
+      "target": 600,
       "unit": "trees",
-      "description": "Native trees in North America via Arbor Day Foundation"
+      "description": "Reforestation across ecosystems — mangroves, native forests, and more"
     },
     {
-      "icon": "🫧",
-      "title": "Restore Kelp Forests",
+      "icon": "🌱",
+      "title": "Restore Marine Habitats",
       "current": 0,
       "target": 465,
       "unit": "units",
-      "description": "Underwater kelp forest restoration in British Columbia"
+      "description": "Rebuilding underwater ecosystems that absorb CO₂ and support biodiversity"
     },
     {
       "icon": "💧",
@@ -83,7 +75,15 @@
       "current": 0,
       "target": 40,
       "unit": "people",
-      "description": "Lasting safe water access via Water.org"
+      "description": "Giving people lasting access to safe drinking water"
+    },
+    {
+      "icon": "🔥",
+      "title": "Wildfire Resilience",
+      "current": 0,
+      "target": 10,
+      "unit": "acres",
+      "description": "Protecting communities through prescribed burns and fire prevention"
     }
   ],
   "donations": []
