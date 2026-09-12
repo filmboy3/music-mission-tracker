@@ -14,6 +14,11 @@ function safeArtwork(path) {
     : "";
 }
 
+function setText(selector, value) {
+  const node = document.querySelector(selector);
+  if (node) node.textContent = value;
+}
+
 function render(data, stats) {
   document.querySelectorAll("[data-artist-name]").forEach((node) => {
     node.textContent = data.artist.name;
@@ -34,42 +39,46 @@ function render(data, stats) {
 
   const total = data.donations.reduce((sum, entry) => sum + Number(entry.amount || 0), 0);
   const goal = Number(data.goal.amount || 0);
-  const percent = goal ? Math.min(100, Math.round((total / goal) * 100)) : 0;
-  document.querySelector("#total-donated").textContent = money.format(total);
-  document.querySelector("#goal-current").textContent = money.format(total);
-  document.querySelector("#goal-target").textContent = money.format(goal);
-  document.querySelector("#goal-percent").textContent = `${percent}%`;
-  document.querySelector("#goal-bar").style.width = `${percent}%`;
-  document.querySelector(".progress-track").setAttribute("aria-valuenow", percent);
-  document.querySelector("#donation-count").textContent = data.donations.length;
-  document.querySelector("#partner-count").textContent = data.missionGoals.length;
-  document.querySelector("#album-count").textContent = data.albums.length;
-  document.querySelector("#goal-copy").textContent = data.goal.message;
+  const committed = Number(data.goal.committed || 0);
+  const percent = goal ? Math.min(100, Math.round((committed / goal) * 100)) : 0;
+  setText("#total-donated", money.format(total));
+  setText("#goal-current", money.format(committed));
+  setText("#goal-target", money.format(goal));
+  setText("#goal-percent", `${percent}%`);
+  setText("#donation-count", data.donations.length);
+  setText("#partner-count", data.missionGoals.length);
+  setText("#album-count", data.albums.length);
+  setText("#goal-copy", data.goal.message);
+  const goalBar = document.querySelector("#goal-bar");
+  if (goalBar) goalBar.style.width = `${percent}%`;
+  const progressTrack = document.querySelector(".progress-track");
+  if (progressTrack) progressTrack.setAttribute("aria-valuenow", percent);
   if (data.lastUpdated) {
-    document.querySelector("#last-updated").textContent = `Last updated ${data.lastUpdated}`;
+    setText("#last-updated", `Last updated ${data.lastUpdated}`);
   }
 
   const monthlyListeners = Number(stats?.spotify?.monthlyListeners || 0);
   if (monthlyListeners) {
-    document.querySelector("#monthly-listeners").textContent = new Intl.NumberFormat("en-US", {
+    setText("#monthly-listeners", new Intl.NumberFormat("en-US", {
       notation: "compact",
       maximumFractionDigits: 1,
-    }).format(monthlyListeners);
+    }).format(monthlyListeners));
   }
   if (stats?.spotify?.asOf) {
     const date = new Date(`${stats.spotify.asOf}T12:00:00Z`);
-    document.querySelector("#spotify-stats-date").textContent = `last verified ${date.toLocaleDateString("en-US", {
+    setText("#spotify-stats-date", `last verified ${date.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
       timeZone: "UTC",
-    })}`;
+    })}`);
   }
   const statsSource = safeLink(stats?.spotify?.source);
-  if (statsSource) document.querySelector("#spotify-stats-source").href = statsSource;
+  const statsSourceLink = document.querySelector("#spotify-stats-source");
+  if (statsSource && statsSourceLink) statsSourceLink.href = statsSource;
 
   const albumGrid = document.querySelector("#album-grid");
-  data.albums.forEach((album, index) => {
+  data.albums.forEach((album) => {
     const spotify = safeLink(album.spotify);
     const appleMusic = safeLink(album.appleMusic);
     const artwork = safeArtwork(album.artwork);
@@ -81,7 +90,7 @@ function render(data, stats) {
         ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>` : ""}
         ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>` : ""}
       </div>`;
-    albumGrid.append(card);
+    if (albumGrid) albumGrid.append(card);
   });
 
   const missionGoalGrid = document.querySelector("#mission-goal-grid");
@@ -97,12 +106,12 @@ function render(data, stats) {
       <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong> / ${target.toLocaleString()} ${item.unit}</p>
       <div class="mission-progress" role="progressbar" aria-label="${item.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${itemPercent}"><span style="width:${itemPercent}%"></span></div>
       <p class="mission-goal-description">${item.description}</p>`;
-    missionGoalGrid.append(card);
+    if (missionGoalGrid) missionGoalGrid.append(card);
   });
 
   const body = document.querySelector("#ledger-body");
   const empty = document.querySelector("#ledger-empty");
-  if (data.donations.length) {
+  if (body && empty && data.donations.length) {
     empty.hidden = true;
     data.donations.forEach((entry) => {
       const proof = safeLink(entry.proof);
@@ -113,8 +122,9 @@ function render(data, stats) {
         <td>${proof ? `<a href="${proof}" target="_blank" rel="noopener noreferrer">View ↗</a>` : "—"}</td>`;
       body.append(row);
     });
-  } else {
-    document.querySelector("table").hidden = true;
+  } else if (body && empty) {
+    const table = document.querySelector("table");
+    if (table) table.hidden = true;
   }
 
   const social = document.querySelector("#social-links");
@@ -126,7 +136,7 @@ function render(data, stats) {
     anchor.target = "_blank";
     anchor.rel = "noopener noreferrer";
     anchor.textContent = label.replace(/(^|_)(\w)/g, (_, __, letter) => ` ${letter.toUpperCase()}`).trim();
-    social.append(anchor);
+    if (social) social.append(anchor);
   });
 }
 
