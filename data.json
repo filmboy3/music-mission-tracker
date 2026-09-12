@@ -1,0 +1,24 @@
+{
+  "artist": {
+    "name": "Jonathan Schwartz"
+  },
+  "lastUpdated": "",
+  "goal": {
+    "amount": 1000,
+    "message": "Every stream adds to the next donation."
+  },
+  "links": {
+    "playlist": "",
+    "spotify": "https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf",
+    "apple_music": "",
+    "youtube": ""
+  },
+  "partners": [],
+  "albums": [
+    { "title": "Album One", "year": "Chapter I", "url": "", "color": "#ff9a3d" },
+    { "title": "Album Two", "year": "Chapter II", "url": "", "color": "#e54b2f" },
+    { "title": "Album Three", "year": "Chapter III", "url": "", "color": "#bf3958" },
+    { "title": "Album Four", "year": "Chapter IV", "url": "", "color": "#9eb294" }
+  ],
+  "donations": []
+}

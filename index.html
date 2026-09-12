@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17120f" />
+    <meta
+      name="description"
+      content="Four albums. Every royalty donated. Follow the music and the environmental impact."
+    />
+    <meta property="og:title" content="The Music Gives Back" />
+    <meta
+      property="og:description"
+      content="Four albums. Every royalty donated. Your listens help the planet."
+    />
+    <meta property="og:type" content="website" />
+    <title>The Music Gives Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Back to top">
+        <span class="wordmark-mark" aria-hidden="true">JS</span>
+        <span data-artist-name>Jonathan Schwartz</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#impact">Impact</a>
+        <a href="#ledger">Ledger</a>
+      </nav>
+      <a class="header-cta" href="#listen">Listen <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="orb orb-one" aria-hidden="true"></div>
+        <div class="orb orb-two" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow"><span></span> Music with a measurable afterlife</p>
+          <h1 id="hero-title">Every stream<br />moves something<br /><em>forward.</em></h1>
+          <p class="hero-copy">
+            Four albums. All artist royalties donated to environmental work.
+            The more the music travels, the more good it can do.
+          </p>
+          <div class="hero-actions" id="listen">
+            <a class="button button-primary" data-link="playlist" href="#albums">
+              Save the complete playlist <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-quiet" href="#impact">See the progress <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-statement" aria-label="One hundred percent of artist royalties donated">
+          <strong>100%</strong>
+          <span>of artist royalties<br />go back to the planet</span>
+        </div>
+      </section>
+
+      <section class="manifesto" id="mission" aria-labelledby="mission-title">
+        <p class="section-label">01 / The mission</p>
+        <div>
+          <h2 id="mission-title">Songs should leave<br />more than an echo.</h2>
+          <div class="manifesto-copy">
+            <p>
+              This catalog was made to keep giving. Every dollar of artist
+              royalties earned by these four albums is set aside for verified
+              environmental organizations.
+            </p>
+            <p>
+              Listening is the action. Transparency is the promise. This page
+              is the public record of what the music earns and where it goes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact" id="impact" aria-labelledby="impact-title">
+        <div class="impact-heading">
+          <p class="section-label light">02 / Live impact</p>
+          <h2 id="impact-title">The record,<br /><em>on the record.</em></h2>
+          <p>Updated whenever distributor royalties clear and a donation is completed.</p>
+        </div>
+
+        <div class="impact-dashboard">
+          <article class="total-card">
+            <p>Total donated</p>
+            <strong id="total-donated">$0</strong>
+            <span id="last-updated">Tracking begins with the first royalty statement</span>
+          </article>
+
+          <article class="goal-card">
+            <div class="goal-topline">
+              <div>
+                <p>First community goal</p>
+                <strong><span id="goal-current">$0</span> <small>of <span id="goal-target">$1,000</span></small></strong>
+              </div>
+              <span class="goal-percent" id="goal-percent">0%</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Donation goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="goal-bar"></span>
+            </div>
+            <p id="goal-copy">Every stream adds to the next donation.</p>
+          </article>
+
+          <div class="metric-grid">
+            <article><strong id="album-count">4</strong><span>albums giving back</span></article>
+            <article><strong id="donation-count">0</strong><span>donations completed</span></article>
+            <article><strong id="partner-count">—</strong><span>verified partners</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="albums" id="albums" aria-labelledby="albums-title">
+        <div class="albums-heading">
+          <p class="section-label">03 / The catalog</p>
+          <h2 id="albums-title">Four chapters.<br />One commitment.</h2>
+        </div>
+        <div class="album-grid" id="album-grid"></div>
+      </section>
+
+      <section class="ledger" id="ledger" aria-labelledby="ledger-title">
+        <div class="ledger-heading">
+          <p class="section-label">04 / Transparency</p>
+          <h2 id="ledger-title">Every transfer,<br />visible here.</h2>
+          <p>
+            Donation entries include the reporting period, recipient, amount,
+            and receipt whenever one is available.
+          </p>
+        </div>
+        <div class="ledger-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Recipient</th><th>Period</th><th>Amount</th><th>Proof</th></tr>
+            </thead>
+            <tbody id="ledger-body"></tbody>
+          </table>
+          <div class="empty-state" id="ledger-empty">
+            <span aria-hidden="true">◎</span>
+            <p><strong>The ledger opens with the first payout.</strong><br />Nothing hidden. Nothing rounded up.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <p class="section-label light">Keep it moving</p>
+        <h2>Put the music<br /><em>to work.</em></h2>
+        <p>Save the playlist once. Every future release lands in the same place.</p>
+        <a class="button button-sun" data-link="playlist" href="#albums">Open the complete playlist <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="wordmark footer-mark" href="#top"><span class="wordmark-mark">JS</span><span data-artist-name>Jonathan Schwartz</span></a>
+      <p>Music that gives back. Always.</p>
+      <div class="social-links" id="social-links"></div>
+    </footer>
+  </body>
+</html>
