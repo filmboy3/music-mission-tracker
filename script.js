@@ -42,7 +42,7 @@ function render(data) {
   document.querySelector("#goal-bar").style.width = `${percent}%`;
   document.querySelector(".progress-track").setAttribute("aria-valuenow", percent);
   document.querySelector("#donation-count").textContent = data.donations.length;
-  document.querySelector("#partner-count").textContent = data.partners.length || "—";
+  document.querySelector("#partner-count").textContent = data.missionGoals.length;
   document.querySelector("#album-count").textContent = data.albums.length;
   document.querySelector("#goal-copy").textContent = data.goal.message;
   if (data.lastUpdated) {
@@ -51,21 +51,34 @@ function render(data) {
 
   const albumGrid = document.querySelector("#album-grid");
   data.albums.forEach((album, index) => {
-    const url = safeLink(album.url);
+    const spotify = safeLink(album.spotify);
+    const appleMusic = safeLink(album.appleMusic);
     const artwork = safeArtwork(album.artwork);
-    const card = document.createElement(url ? "a" : "article");
+    const card = document.createElement("article");
     card.className = "album-card";
-    if (url) {
-      card.href = url;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-      card.setAttribute("aria-label", `Listen to ${album.title} on Spotify`);
-    }
     card.innerHTML = `
       ${artwork ? `<img class="album-artwork" src="${artwork}" alt="${album.title} album cover" loading="lazy" width="1200" height="1200">` : ""}
-      <span class="album-number">ALBUM ${String(index + 1).padStart(2, "0")}</span>
-      <div class="album-info"><strong>${album.title}</strong><span>${album.year || "Listen soon"} · Listen on Spotify ↗</span></div>`;
+      <div class="album-platforms" aria-label="Listen to ${album.title}">
+        ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>` : ""}
+        ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>` : ""}
+      </div>`;
     albumGrid.append(card);
+  });
+
+  const missionGoalGrid = document.querySelector("#mission-goal-grid");
+  data.missionGoals.forEach((item) => {
+    const current = Number(item.current || 0);
+    const target = Number(item.target || 0);
+    const itemPercent = target ? Math.min(100, Math.round((current / target) * 100)) : 0;
+    const card = document.createElement("article");
+    card.className = "mission-goal-card";
+    card.innerHTML = `
+      <div class="mission-goal-top"><span class="mission-goal-icon" aria-hidden="true">${item.icon}</span><span class="funding-label">$1,000 goal</span></div>
+      <h3>${item.title}</h3>
+      <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong> / ${target.toLocaleString()} ${item.unit}</p>
+      <div class="mission-progress" role="progressbar" aria-label="${item.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${itemPercent}"><span style="width:${itemPercent}%"></span></div>
+      <p class="mission-goal-description">${item.description}</p>`;
+    missionGoalGrid.append(card);
   });
 
   const body = document.querySelector("#ledger-body");

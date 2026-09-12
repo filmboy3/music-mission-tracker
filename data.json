@@ -5,7 +5,7 @@
   "lastUpdated": "",
   "goal": {
     "amount": 1000,
-    "message": "Every stream adds to the next donation."
+    "message": "Every listener gets us closer to the next $1,000 mission goal."
   },
   "links": {
     "playlist": "",
@@ -18,26 +18,72 @@
     {
       "title": "Overexposed",
       "year": "2026",
-      "url": "https://open.spotify.com/album/2cpwHQxJzFtD1nI4JDgCJ0",
+      "spotify": "https://open.spotify.com/album/2cpwHQxJzFtD1nI4JDgCJ0",
+      "appleMusic": "https://music.apple.com/us/album/overexposed/6806931335",
       "artwork": "assets/albums/overexposed.jpg"
     },
     {
       "title": "Burn Bright",
       "year": "2026",
-      "url": "https://open.spotify.com/album/48YIgsJ9gmhBnem5sU1oq5",
+      "spotify": "https://open.spotify.com/album/48YIgsJ9gmhBnem5sU1oq5",
+      "appleMusic": "https://music.apple.com/us/album/burn-bright/6806921251",
       "artwork": "assets/albums/burn-bright.jpg"
     },
     {
       "title": "Amplify",
       "year": "2026",
-      "url": "https://open.spotify.com/album/7g16YXhap9fma6UGDOrNir",
+      "spotify": "https://open.spotify.com/album/7g16YXhap9fma6UGDOrNir",
+      "appleMusic": "https://music.apple.com/us/album/amplify/6806950246",
       "artwork": "assets/albums/amplify.jpg"
     },
     {
       "title": "Timelines",
       "year": "2026",
-      "url": "https://open.spotify.com/album/7upA8Lj9WYGItl9zJssEVY",
+      "spotify": "https://open.spotify.com/album/7upA8Lj9WYGItl9zJssEVY",
+      "appleMusic": "https://music.apple.com/us/album/timelines/6806951051",
       "artwork": "assets/albums/timelines.jpg"
+    }
+  ],
+  "missionGoals": [
+    {
+      "icon": "🌊",
+      "title": "Clean the Ocean",
+      "current": 0,
+      "target": 4000,
+      "unit": "bottles",
+      "description": "Intercepting ocean-bound plastic bottles via Plastic Bank"
+    },
+    {
+      "icon": "🌿",
+      "title": "Plant Mangroves",
+      "current": 0,
+      "target": 465,
+      "unit": "trees",
+      "description": "GPS-verified mangrove restoration in Kenya and Brazil"
+    },
+    {
+      "icon": "🌲",
+      "title": "Plant Trees",
+      "current": 0,
+      "target": 133,
+      "unit": "trees",
+      "description": "Native trees in North America via Arbor Day Foundation"
+    },
+    {
+      "icon": "🫧",
+      "title": "Restore Kelp Forests",
+      "current": 0,
+      "target": 465,
+      "unit": "units",
+      "description": "Underwater kelp forest restoration in British Columbia"
+    },
+    {
+      "icon": "💧",
+      "title": "Fund Clean Water",
+      "current": 0,
+      "target": 40,
+      "unit": "people",
+      "description": "Lasting safe water access via Water.org"
     }
   ],
   "donations": []

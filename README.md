@@ -7,7 +7,8 @@ A fast, dependency-free public impact page for GitHub Pages.
 All changing content lives in `data.json`:
 
 - Add Spotify, Apple Music, YouTube, and playlist URLs under `links`.
-- Update album titles, release years, artwork paths, and listening URLs under `albums`.
+- Update album artwork plus the Spotify and Apple Music destinations under `albums`.
+- Update the five $1,000 outcome targets under `missionGoals`.
 - Add environmental organizations to `partners`.
 - Add each completed donation to `donations` using this shape:
 
