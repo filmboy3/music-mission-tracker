@@ -181,6 +181,16 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   table { min-width: 600px; }
 }
 
+.emoji-prompt {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(23, 18, 15, 0.06);
+  border-radius: 8px;
+  font-size: .88rem;
+  line-height: 1.6;
+  letter-spacing: .02em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
