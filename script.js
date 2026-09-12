@@ -73,7 +73,7 @@ function render(data) {
     const card = document.createElement("article");
     card.className = "mission-goal-card";
     card.innerHTML = `
-      <div class="mission-goal-top"><span class="mission-goal-icon" aria-hidden="true">${item.icon}</span><span class="funding-label">$1,000 goal</span></div>
+      <div class="mission-goal-top"><span class="mission-goal-icon" aria-hidden="true">${item.icon}</span></div>
       <h3>${item.title}</h3>
       <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong> / ${target.toLocaleString()} ${item.unit}</p>
       <div class="mission-progress" role="progressbar" aria-label="${item.title} progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${itemPercent}"><span style="width:${itemPercent}%"></span></div>

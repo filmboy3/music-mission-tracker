@@ -8,7 +8,7 @@ All changing content lives in `data.json`:
 
 - Add Spotify, Apple Music, YouTube, and playlist URLs under `links`.
 - Update album artwork plus the Spotify and Apple Music destinations under `albums`.
-- Update the five $1,000 outcome targets under `missionGoals`.
+- Update the five measurable outcome targets under `missionGoals`.
 - Add environmental organizations to `partners`.
 - Add each completed donation to `donations` using this shape:
 

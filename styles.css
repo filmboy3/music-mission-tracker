@@ -99,7 +99,6 @@ h1 em, h2 em { color: var(--sun); font-family: Georgia, serif; font-weight: 400;
 .mission-goal-card:nth-child(4) { grid-column: 2 / span 2; }
 .mission-goal-top { display: flex; justify-content: space-between; align-items: center; }
 .mission-goal-icon { font-size: 28px; }
-.funding-label { color: rgba(23,18,15,.45); font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .mission-goal-card h3 { margin: 42px 0 0; font: 600 25px/1.1 var(--display); letter-spacing: -.04em; }
 .mission-goal-count { margin: 13px 0 0; font-size: 14px; color: rgba(23,18,15,.52); }
 .mission-goal-count strong { color: var(--ink); font: 600 24px/1 var(--display); }
