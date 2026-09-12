@@ -14,7 +14,7 @@ function safeArtwork(path) {
     : "";
 }
 
-function render(data) {
+function render(data, stats) {
   document.querySelectorAll("[data-artist-name]").forEach((node) => {
     node.textContent = data.artist.name;
   });
@@ -48,6 +48,25 @@ function render(data) {
   if (data.lastUpdated) {
     document.querySelector("#last-updated").textContent = `Last updated ${data.lastUpdated}`;
   }
+
+  const monthlyListeners = Number(stats?.spotify?.monthlyListeners || 0);
+  if (monthlyListeners) {
+    document.querySelector("#monthly-listeners").textContent = new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      maximumFractionDigits: 1,
+    }).format(monthlyListeners);
+  }
+  if (stats?.spotify?.asOf) {
+    const date = new Date(`${stats.spotify.asOf}T12:00:00Z`);
+    document.querySelector("#spotify-stats-date").textContent = `last verified ${date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    })}`;
+  }
+  const statsSource = safeLink(stats?.spotify?.source);
+  if (statsSource) document.querySelector("#spotify-stats-source").href = statsSource;
 
   const albumGrid = document.querySelector("#album-grid");
   data.albums.forEach((album, index) => {
@@ -111,10 +130,12 @@ function render(data) {
   });
 }
 
-fetch("data.json")
-  .then((response) => {
+Promise.all([
+  fetch("data.json").then((response) => {
     if (!response.ok) throw new Error("Could not load impact data");
     return response.json();
-  })
-  .then(render)
+  }),
+  fetch("stats.json").then((response) => response.ok ? response.json() : {}),
+])
+  .then(([data, stats]) => render(data, stats))
   .catch((error) => console.error(error));

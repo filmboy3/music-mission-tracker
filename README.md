@@ -28,6 +28,14 @@ album cards, ledger, and footer links update automatically.
 The high-resolution album covers are stored locally in `assets/albums/`, so the
 site does not depend on third-party image URLs at runtime.
 
+## Audience data
+
+`stats.json` contains the last verified public Spotify monthly-listener count.
+The deployment refreshes that number from the public artist profile on every
+publish and once daily. If Spotify is unavailable, the last verified value stays
+in place. Monthly listeners are shown as audience context and never advance the
+mission progress bars; only verified donations do.
+
 ## Publish with GitHub Pages
 
 1. Create a public GitHub repository (suggested name: `music-mission-tracker`).
