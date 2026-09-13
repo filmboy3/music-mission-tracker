@@ -1,7 +1,9 @@
 {
   "spotify": {
+    "followers": 432,
+    "followersAsOf": "2026-09-12",
     "monthlyListeners": 45153,
-    "asOf": "2026-09-12",
+    "asOf": "2026-09-13",
     "source": "https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf"
   }
 }

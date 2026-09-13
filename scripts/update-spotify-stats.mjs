@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const outputPath = new URL("../stats.json", import.meta.url);
 const artistUrl = "https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf";
+const previous = JSON.parse(await readFile(outputPath, "utf8"));
 
 function parseMonthlyListeners(html) {
   const precise = html.match(/data-testid="monthly-listeners-label"[^>]*>([\d,]+) monthly listeners/i);
@@ -14,6 +15,12 @@ function parseMonthlyListeners(html) {
   return Math.round(Number(compact[1]) * multiplier);
 }
 
+function parseFollowers(html) {
+  const match = html.match(/"stats"\s*:\s*\{\s*"followers"\s*:\s*(\d+)/i)
+    || html.match(/"followers"\s*:\s*(\d+)\s*,\s*"monthlyListeners"/i);
+  return match ? Number(match[1]) : 0;
+}
+
 try {
   const response = await fetch(artistUrl, {
     headers: {
@@ -23,20 +30,27 @@ try {
   });
   if (!response.ok) throw new Error(`Spotify returned ${response.status}`);
 
-  const monthlyListeners = parseMonthlyListeners(await response.text());
+  const html = await response.text();
+  const monthlyListeners = parseMonthlyListeners(html);
+  const parsedFollowers = parseFollowers(html);
+  const followers = parsedFollowers || Number(previous.spotify.followers || 0);
   if (!monthlyListeners) throw new Error("Monthly-listener count was not found");
+  if (!followers) throw new Error("No verified follower count is available");
+  const today = new Date().toISOString().slice(0, 10);
 
   const stats = {
     spotify: {
+      followers,
+      followersAsOf: parsedFollowers ? today : previous.spotify.followersAsOf || previous.spotify.asOf,
       monthlyListeners,
-      asOf: new Date().toISOString().slice(0, 10),
+      asOf: today,
       source: artistUrl
     }
   };
   await writeFile(outputPath, `${JSON.stringify(stats, null, 2)}\n`);
+  console.log(`Spotify followers: ${followers.toLocaleString("en-US")}${parsedFollowers ? "" : " (last verified)"}`);
   console.log(`Spotify monthly listeners: ${monthlyListeners.toLocaleString("en-US")}`);
 } catch (error) {
-  const fallback = JSON.parse(await readFile(outputPath, "utf8"));
   console.warn(`Spotify refresh skipped: ${error.message}`);
-  console.warn(`Using last verified value from ${fallback.spotify.asOf}.`);
+  console.warn(`Using last verified value from ${previous.spotify.asOf}.`);
 }

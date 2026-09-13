@@ -4,8 +4,12 @@
   },
   "lastUpdated": "September 12, 2026",
   "goal": {
-    "progressPercent": 15,
-    "message": "Three confirmed outcomes. One shared mission."
+    "progressPercent": 17,
+    "roundsCompleted": 1,
+    "totalRounds": 6,
+    "followersPerRound": 50,
+    "followerBaseline": 432,
+    "message": "The first round is seeded. Every 50 new Spotify followers unlocks the next round."
   },
   "links": {
     "playlist": "",
@@ -48,6 +52,7 @@
     {
       "title": "Trees Planted",
       "current": 50,
+      "target": 300,
       "unit": "trees planted",
       "partner": "#TeamTrees",
       "partnerUrl": "https://teamtrees.org/",
@@ -58,6 +63,7 @@
     {
       "title": "Clean Water",
       "current": 50,
+      "target": 300,
       "unit": "people with clean water for one year",
       "partner": "#TeamWater",
       "partnerUrl": "https://teamwater.org/",
@@ -68,7 +74,8 @@
     {
       "title": "Microplastics Removed",
       "current": 52,
-      "unit": "pounds of microplastics removed",
+      "target": 300,
+      "unit": "pounds of ocean plastic removed",
       "partner": "Ocean Blue Project",
       "partnerUrl": "https://oceanblueproject.org/",
       "logo": "assets/partners/ocean-blue-project.png",

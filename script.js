@@ -33,6 +33,22 @@ function render(data, stats) {
 
   const percent = Math.min(100, Math.max(0, Number(data.goal.progressPercent || 0)));
   setText("#goal-percent", `${percent}%`);
+  setText("#rounds-complete", data.goal.roundsCompleted);
+  setText("#rounds-total", data.goal.totalRounds);
+  const followers = Number(stats?.spotify?.followers || data.goal.followerBaseline || 0);
+  const nextThreshold = Number(data.goal.followerBaseline || 0)
+    + Number(data.goal.followersPerRound || 0) * Number(data.goal.roundsCompleted || 0);
+  setText("#spotify-followers", followers ? followers.toLocaleString("en-US") : "—");
+  setText("#next-threshold", nextThreshold.toLocaleString("en-US"));
+  if (stats?.spotify?.followersAsOf || stats?.spotify?.asOf) {
+    const snapshotDate = new Date(`${stats.spotify.followersAsOf || stats.spotify.asOf}T12:00:00Z`);
+    setText("#followers-as-of", `As of ${snapshotDate.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    })}`);
+  }
   setText("#partner-count", data.missionGoals.length);
   setText("#album-count", data.albums.length);
   setText("#goal-copy", data.goal.message);
@@ -83,6 +99,8 @@ function render(data, stats) {
   const missionGoalGrid = document.querySelector("#mission-goal-grid");
   data.missionGoals.forEach((item) => {
     const current = Number(item.current || 0);
+    const target = Number(item.target || 0);
+    const itemPercent = target ? Math.min(100, Math.round((current / target) * 100)) : 0;
     const partnerUrl = safeLink(item.partnerUrl);
     const logo = safeArtwork(item.logo);
     const card = document.createElement("article");
@@ -94,8 +112,8 @@ function render(data, stats) {
       <h3>${item.title}</h3>
       <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong><span>${item.unit}</span></p>
       <p class="mission-goal-description">${item.description}</p>
-      <div class="mission-subprogress-label"><span>${current.toLocaleString()} ${item.unit}</span><strong>${percent}%</strong></div>
-      <div class="mission-subprogress" role="progressbar" aria-label="${item.title}: ${percent}% of first mission" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"><span style="width:${percent}%"></span></div>
+      <div class="mission-subprogress-label"><span>${current.toLocaleString()} / ${target.toLocaleString()} ${item.unit}</span><strong>${itemPercent}%</strong></div>
+      <div class="mission-subprogress" role="progressbar" aria-label="${item.title}: ${current} of ${target} ${item.unit}" aria-valuemin="0" aria-valuemax="${target}" aria-valuenow="${current}"><span style="width:${itemPercent}%"></span></div>
       <div class="mission-goal-meta">
         <span>Confirmed ${item.date}</span>
         ${partnerUrl ? `<a href="${partnerUrl}" target="_blank" rel="noopener noreferrer">${item.partner} ↗</a>` : ""}
