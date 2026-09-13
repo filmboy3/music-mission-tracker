@@ -75,14 +75,16 @@ function render(data, stats) {
   data.albums.forEach((album) => {
     const spotify = safeLink(album.spotify);
     const appleMusic = safeLink(album.appleMusic);
+    const youtube = safeLink(album.youtube || data.links.youtube);
     const artwork = safeArtwork(album.artwork);
     const card = document.createElement("article");
     card.className = "album-card";
     card.innerHTML = `
       ${artwork ? `<img class="album-artwork" src="${artwork}" alt="${album.title} album cover" loading="lazy" width="1200" height="1200">` : ""}
       <div class="album-platforms" aria-label="Listen to ${album.title}">
-        ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg><span>Spotify</span></a>` : ""}
-        ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg><span>Apple Music</span></a>` : ""}
+        ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>` : ""}
+        ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>` : ""}
+        ${youtube ? `<a class="platform-link youtube-link" href="${youtube}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="5"/><path d="M10 9l5 3-5 3z"/></svg></a>` : ""}
       </div>`;
     if (albumGrid) albumGrid.append(card);
   });
@@ -120,7 +122,18 @@ function render(data, stats) {
     anchor.href = url;
     anchor.target = "_blank";
     anchor.rel = "noopener noreferrer";
-    anchor.textContent = label.replace(/(^|_)(\w)/g, (_, __, letter) => ` ${letter.toUpperCase()}`).trim();
+    anchor.className = `social-icon ${label.replaceAll("_", "-")}-icon`;
+    anchor.setAttribute("aria-label", label.replace(/(^|_)(\w)/g, (_, __, letter) => ` ${letter.toUpperCase()}`).trim());
+    anchor.title = anchor.getAttribute("aria-label");
+    if (label === "spotify") {
+      anchor.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg>`;
+    } else if (label === "apple_music") {
+      anchor.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg>`;
+    } else if (label === "youtube") {
+      anchor.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="5"/><path d="M10 9l5 3-5 3z"/></svg>`;
+    } else {
+      anchor.textContent = label;
+    }
     if (social) social.append(anchor);
   });
 }

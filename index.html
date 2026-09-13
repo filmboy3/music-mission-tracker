@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="preload" href="assets/hero-banner.png" as="image" />
-    <link rel="stylesheet" href="styles.css?v=4" />
-    <script src="script.js?v=4" defer></script>
+    <link rel="stylesheet" href="styles.css?v=5" />
+    <script src="script.js?v=5" defer></script>
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -47,7 +47,11 @@
           <p class="hero-copy">Every listen gives something back—trees planted, water given, ocean plastic removed.</p>
           <div class="hero-actions" id="listen">
             <a class="button button-primary" href="#albums">Join the mission <span aria-hidden="true">↓</span></a>
-            <a class="button button-quiet" data-link="spotify" href="#albums">Listen on Spotify <span aria-hidden="true">↗</span></a>
+            <div class="platform-quick-links" aria-label="Listen to Jonathan Schwartz">
+              <a class="platform-quick spotify-link" data-link="spotify" href="#albums" aria-label="Listen on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>
+              <a class="platform-quick apple-link" data-link="apple_music" href="#albums" aria-label="Listen on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>
+              <a class="platform-quick youtube-link" data-link="youtube" href="#albums" aria-label="Listen on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="5"/><path d="M10 9l5 3-5 3z"/></svg></a>
+            </div>
           </div>
         </div>
       </section>
@@ -58,7 +62,7 @@
           <p class="section-label">The Impact</p>
           <div>
             <h2 id="mission-goals-title">300 trees.<br />300 people with clean water.<br />300 lbs of ocean plastic.</h2>
-            <p>Monthly audience growth is the signal; completed, documented environmental work is the proof. As the audience grows, so does the mission.</p>
+            <p>Every new listener helps this community grow—and gives us more power to plant trees, provide clean water, and clear plastic from the ocean.</p>
           </div>
         </div>
 
@@ -100,7 +104,7 @@
           <h2 id="story-title">Music gave me a way through. This is how I give something back.</h2>
           <div class="story-copy">
             <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
-            <p>The planet offers that same nourishment every day. Music to Mother Earth’s ears: this project turns a growing audience into trees planted, clean water given, and ocean plastic removed—real, trackable environmental work.</p>
+            <p>The planet offers that same nourishment every day. So it’s time to put some music in Mother Earth’s ears. This project plants seeds with listeners—turning a growing community into trees planted, clean water given, and ocean plastic removed: real, trackable change our planet desperately needs.</p>
             <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
           </div>
         </div>
@@ -134,9 +138,10 @@
       <section class="closing">
         <p class="section-label light">Join the mission</p>
         <h2>Start with a save.<br /><em>Stay for the impact.</em></h2>
-        <div class="closing-actions">
-          <a class="button button-sun" data-link="spotify" href="#albums">Follow on Spotify <span aria-hidden="true">↗</span></a>
-          <a class="button button-quiet" data-link="apple_music" href="#albums">Listen on Apple Music <span aria-hidden="true">↗</span></a>
+        <div class="closing-actions" aria-label="Listen to Jonathan Schwartz">
+          <a class="platform-quick spotify-link" data-link="spotify" href="#albums" aria-label="Listen on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>
+          <a class="platform-quick apple-link" data-link="apple_music" href="#albums" aria-label="Listen on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>
+          <a class="platform-quick youtube-link" data-link="youtube" href="#albums" aria-label="Listen on YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="5"/><path d="M10 9l5 3-5 3z"/></svg></a>
         </div>
       </section>
     </main>
