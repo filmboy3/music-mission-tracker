@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="preload" href="assets/hero-banner.png" as="image" />
-    <link rel="stylesheet" href="styles.css?v=3" />
-    <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=4" />
+    <script src="script.js?v=4" defer></script>
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -26,8 +26,8 @@
         <span data-artist-name>Jonathan Schwartz</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#albums">Albums</a>
         <a href="#goals">Impact</a>
+        <a href="#albums">Albums</a>
         <a href="#story">About</a>
       </nav>
       <a class="header-cta" href="#albums">Join the mission <span aria-hidden="true">↗</span></a>
@@ -48,55 +48,6 @@
           <div class="hero-actions" id="listen">
             <a class="button button-primary" href="#albums">Join the mission <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" data-link="spotify" href="#albums">Listen on Spotify <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- SPOTIFY AUDIENCE -->
-      <section class="audience" id="audience" aria-labelledby="audience-title">
-        <div class="audience-heading">
-          <p class="section-label light">The audience</p>
-          <div>
-            <h2 id="audience-title"><span id="monthly-listeners">45.2K</span> monthly listeners.</h2>
-            <p>Every listen grows the community behind the mission. Reaching <strong id="monthly-target-copy">50K</strong> monthly listeners is the next trigger for more trees, clean water, and ocean cleanup.</p>
-          </div>
-        </div>
-        <div class="audience-meter">
-          <div class="audience-meter-label">
-            <span>Current audience</span>
-            <strong><span id="monthly-listeners-exact">45,153</span> / <span id="monthly-listener-target">50,000</span></strong>
-          </div>
-          <div class="audience-progress" id="audience-progress" role="progressbar" aria-label="Spotify monthly listeners toward the next audience milestone" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="45153">
-            <span id="audience-bar" style="width: 90%"></span>
-          </div>
-          <div class="audience-meter-meta">
-            <span id="audience-percent">90% to the next milestone</span>
-            <a id="spotify-stats-source" href="https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf" target="_blank" rel="noopener noreferrer">View on Spotify ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ALBUMS -->
-      <section class="albums" id="albums" aria-labelledby="albums-title">
-        <div class="albums-heading">
-          <p class="section-label">The Catalog</p>
-          <div>
-            <h2 id="albums-title">Four albums.<br />One growing mission.</h2>
-            <p class="albums-intro">Choose an album, save it where you listen, and stay connected as the impact grows.</p>
-          </div>
-        </div>
-        <div class="album-grid" id="album-grid"></div>
-      </section>
-
-      <!-- ARTIST STORY -->
-      <section class="story" id="story" aria-labelledby="story-title">
-        <p class="section-label">Why I’m doing this</p>
-        <div>
-          <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
-          <div class="story-copy">
-            <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
-            <p>The planet offers that same nourishment every day. Music to Mother Earth’s ears: this project turns a growing audience into trees planted, clean water given, and ocean plastic removed—real, trackable environmental work.</p>
-            <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
           </div>
         </div>
       </section>
@@ -127,6 +78,55 @@
             </div>
             <p id="goal-copy">50 trees planted. 50 people supported with clean water for a year. 52 pounds of ocean plastic removed.</p>
           </article>
+        </div>
+      </section>
+
+      <!-- ALBUMS -->
+      <section class="albums" id="albums" aria-labelledby="albums-title">
+        <div class="albums-heading">
+          <p class="section-label">The Catalog</p>
+          <div>
+            <h2 id="albums-title">Four albums.<br />One growing mission.</h2>
+            <p class="albums-intro">Choose an album, save it where you listen, and stay connected as the impact grows.</p>
+          </div>
+        </div>
+        <div class="album-grid" id="album-grid"></div>
+      </section>
+
+      <!-- ARTIST STORY -->
+      <section class="story" id="story" aria-labelledby="story-title">
+        <p class="section-label">Why I’m doing this</p>
+        <div>
+          <h2 id="story-title">Music gave me a way through. This is how I give something back.</h2>
+          <div class="story-copy">
+            <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
+            <p>The planet offers that same nourishment every day. Music to Mother Earth’s ears: this project turns a growing audience into trees planted, clean water given, and ocean plastic removed—real, trackable environmental work.</p>
+            <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPOTIFY AUDIENCE -->
+      <section class="audience" id="audience" aria-labelledby="audience-title">
+        <div class="audience-heading">
+          <p class="section-label light">The audience</p>
+          <div>
+            <h2 id="audience-title"><span id="monthly-listeners">45.2K</span> monthly listeners.</h2>
+            <p>Every listen grows the community behind the mission. Reaching <strong id="monthly-target-copy">50K</strong> monthly listeners is the next trigger for more trees, clean water, and ocean cleanup.</p>
+          </div>
+        </div>
+        <div class="audience-meter">
+          <div class="audience-meter-label">
+            <span>Current audience</span>
+            <strong><span id="monthly-listeners-exact">45,153</span> / <span id="monthly-listener-target">50,000</span></strong>
+          </div>
+          <div class="audience-progress" id="audience-progress" role="progressbar" aria-label="Spotify monthly listeners toward the next audience milestone" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="45153">
+            <span id="audience-bar" style="width: 90%"></span>
+          </div>
+          <div class="audience-meter-meta">
+            <span id="audience-percent">90% to the next milestone</span>
+            <a id="spotify-stats-source" href="https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf" target="_blank" rel="noopener noreferrer">View on Spotify ↗</a>
+          </div>
         </div>
       </section>
 
