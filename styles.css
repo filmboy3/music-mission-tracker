@@ -37,7 +37,10 @@ nav a:hover, .header-cta:hover { opacity: 1; }
 .header-cta { justify-self: end; }
 .hero {
   position: relative; min-height: 860px; height: 100vh; overflow: hidden; color: var(--paper);
-  background: radial-gradient(circle at 73% 60%, #8b2736 0, #4b1824 23%, transparent 49%), linear-gradient(135deg, #11100e 0%, #281518 54%, #702334 100%);
+  background-image: url('assets/hero-banner.png'), radial-gradient(circle at 73% 60%, #8b2736 0, #4b1824 23%, transparent 49%), linear-gradient(135deg, #11100e 0%, #281518 54%, #702334 100%);
+  background-size: cover, auto, auto;
+  background-position: center, auto, auto;
+  background-repeat: no-repeat, repeat, repeat;
 }
 .hero::before {
   content: ""; position: absolute; inset: auto -10% -53% 33%; height: 94%; border-radius: 50%;
