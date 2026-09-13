@@ -33,22 +33,6 @@ function render(data, stats) {
 
   const percent = Math.min(100, Math.max(0, Number(data.goal.progressPercent || 0)));
   setText("#goal-percent", `${percent}%`);
-  setText("#rounds-complete", data.goal.roundsCompleted);
-  setText("#rounds-total", data.goal.totalRounds);
-  const followers = Number(stats?.spotify?.followers || data.goal.followerBaseline || 0);
-  const nextThreshold = Number(data.goal.followerBaseline || 0)
-    + Number(data.goal.followersPerRound || 0) * Number(data.goal.roundsCompleted || 0);
-  setText("#spotify-followers", followers ? followers.toLocaleString("en-US") : "—");
-  setText("#next-threshold", nextThreshold.toLocaleString("en-US"));
-  if (stats?.spotify?.followersAsOf || stats?.spotify?.asOf) {
-    const snapshotDate = new Date(`${stats.spotify.followersAsOf || stats.spotify.asOf}T12:00:00Z`);
-    setText("#followers-as-of", `As of ${snapshotDate.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      timeZone: "UTC",
-    })}`);
-  }
   setText("#partner-count", data.missionGoals.length);
   setText("#album-count", data.albums.length);
   setText("#goal-copy", data.goal.message);
@@ -61,20 +45,27 @@ function render(data, stats) {
   }
 
   const monthlyListeners = Number(stats?.spotify?.monthlyListeners || 0);
-  if (monthlyListeners) {
+  const monthlyListenerTarget = Number(data.audienceGoal?.monthlyListeners || 50000);
+  if (monthlyListeners && monthlyListenerTarget) {
+    const audiencePercent = Math.min(100, Math.round((monthlyListeners / monthlyListenerTarget) * 100));
     setText("#monthly-listeners", new Intl.NumberFormat("en-US", {
       notation: "compact",
       maximumFractionDigits: 1,
     }).format(monthlyListeners));
-  }
-  if (stats?.spotify?.asOf) {
-    const date = new Date(`${stats.spotify.asOf}T12:00:00Z`);
-    setText("#spotify-stats-date", `last verified ${date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      timeZone: "UTC",
-    })}`);
+    setText("#monthly-listeners-exact", monthlyListeners.toLocaleString("en-US"));
+    setText("#monthly-listener-target", monthlyListenerTarget.toLocaleString("en-US"));
+    setText("#monthly-target-copy", new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      maximumFractionDigits: 0,
+    }).format(monthlyListenerTarget));
+    setText("#audience-percent", `${audiencePercent}% to the next milestone`);
+    const audienceBar = document.querySelector("#audience-bar");
+    if (audienceBar) audienceBar.style.width = `${audiencePercent}%`;
+    const audienceProgress = document.querySelector("#audience-progress");
+    if (audienceProgress) {
+      audienceProgress.setAttribute("aria-valuemax", monthlyListenerTarget);
+      audienceProgress.setAttribute("aria-valuenow", monthlyListeners);
+    }
   }
   const statsSource = safeLink(stats?.spotify?.source);
   const statsSourceLink = document.querySelector("#spotify-stats-source");
@@ -135,11 +126,11 @@ function render(data, stats) {
 }
 
 Promise.all([
-  fetch("data.json").then((response) => {
+  fetch("data.json", { cache: "no-store" }).then((response) => {
     if (!response.ok) throw new Error("Could not load impact data");
     return response.json();
   }),
-  fetch("stats.json").then((response) => response.ok ? response.json() : {}),
+  fetch("stats.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : {}),
 ])
   .then(([data, stats]) => render(data, stats))
   .catch((error) => console.error(error));

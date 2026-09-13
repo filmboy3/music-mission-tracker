@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#17120f" />
-    <meta name="description" content="Four albums. All royalties donated. Your listens have weight." />
+    <meta name="description" content="Trees planted. Clean water given. Ocean plastic removed. Every listen gives something back." />
     <meta property="og:title" content="Jonathan Schwartz — The Mission" />
-    <meta property="og:description" content="Four albums. All royalties donated. I fund the planet on behalf of every listener." />
+    <meta property="og:description" content="Giving the planet its groove back. Every listen gives something back." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://filmboy3.github.io/music-mission-tracker/assets/hero-banner.png" />
     <title>Jonathan Schwartz — The Mission</title>
@@ -43,8 +43,8 @@
         </div>
         <div class="hero-inner">
           <p class="hero-kicker">Jonathan Schwartz · Singer-songwriter · Former Broadway actor</p>
-          <h1 id="hero-title">Save playlists.<br /><em>Save the planet.</em></h1>
-          <p class="hero-copy">Planted Song Seeds. We grow trees together.</p>
+          <h1 id="hero-title">Giving the planet<br /><em>its groove back.</em></h1>
+          <p class="hero-copy">Every listen gives something back—trees planted, water given, ocean plastic removed.</p>
           <div class="hero-actions" id="listen">
             <a class="button button-primary" href="#albums">Join the mission <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" data-link="spotify" href="#albums">Listen on Spotify <span aria-hidden="true">↗</span></a>
@@ -52,14 +52,26 @@
         </div>
       </section>
 
-      <!-- ARTIST STORY -->
-      <section class="story" id="story" aria-labelledby="story-title">
-        <p class="section-label">Why I’m doing this</p>
-        <div>
-          <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
-          <div class="story-copy">
-            <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
-            <p>The planet offers that same nourishment every day. At a moment when connection and action matter, this project brings the two together: sharing the music, growing a community, and turning that momentum into real, trackable environmental work. Streaming royalties support conservation, and every completed impact is recorded here.</p>
+      <!-- SPOTIFY AUDIENCE -->
+      <section class="audience" id="audience" aria-labelledby="audience-title">
+        <div class="audience-heading">
+          <p class="section-label light">The audience</p>
+          <div>
+            <h2 id="audience-title"><span id="monthly-listeners">45.2K</span> monthly listeners.</h2>
+            <p>Every listen grows the community behind the mission. Reaching <strong id="monthly-target-copy">50K</strong> monthly listeners is the next trigger for more trees, clean water, and ocean cleanup.</p>
+          </div>
+        </div>
+        <div class="audience-meter">
+          <div class="audience-meter-label">
+            <span>Current audience</span>
+            <strong><span id="monthly-listeners-exact">45,153</span> / <span id="monthly-listener-target">50,000</span></strong>
+          </div>
+          <div class="audience-progress" id="audience-progress" role="progressbar" aria-label="Spotify monthly listeners toward the next audience milestone" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="45153">
+            <span id="audience-bar" style="width: 90%"></span>
+          </div>
+          <div class="audience-meter-meta">
+            <span id="audience-percent">90% to the next milestone</span>
+            <a id="spotify-stats-source" href="https://open.spotify.com/artist/4FzJ4PHbqeGr3ou6x20Nhf" target="_blank" rel="noopener noreferrer">View on Spotify ↗</a>
           </div>
         </div>
       </section>
@@ -76,21 +88,27 @@
         <div class="album-grid" id="album-grid"></div>
       </section>
 
+      <!-- ARTIST STORY -->
+      <section class="story" id="story" aria-labelledby="story-title">
+        <p class="section-label">Why I’m doing this</p>
+        <div>
+          <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
+          <div class="story-copy">
+            <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
+            <p>The planet offers that same nourishment every day. Music to Mother Earth’s ears: this project turns a growing audience into trees planted, clean water given, and ocean plastic removed—real, trackable environmental work.</p>
+            <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- GOALS -->
       <section class="mission-goals" id="goals" aria-labelledby="mission-goals-title">
         <div class="mission-goals-heading">
           <p class="section-label">The Impact</p>
           <div>
             <h2 id="mission-goals-title">300 trees.<br />300 people with clean water.<br />300 lbs of ocean plastic.</h2>
-            <p>The first round is seeded. From here, every 50 new Spotify followers unlocks the next round—checked weekly and documented here.</p>
+            <p>Monthly audience growth is the signal; completed, documented environmental work is the proof. As the audience grows, so does the mission.</p>
           </div>
-        </div>
-
-        <div class="milestone-grid" aria-label="How the milestones work">
-          <article><span>Spotify followers</span><strong id="spotify-followers">432</strong><small id="followers-as-of">Launch baseline</small></article>
-          <article><span>Next round</span><strong><span id="next-threshold">482</span> followers</strong></article>
-          <article><span>Impact rounds</span><strong><span id="rounds-complete">1</span> of <span id="rounds-total">6</span> complete</strong></article>
-          <article><span>Update cadence</span><strong>Checked weekly</strong></article>
         </div>
 
         <div class="mission-goal-grid" id="mission-goal-grid"></div>
@@ -100,14 +118,14 @@
             <div class="goal-topline">
               <div>
                 <p>Overall mission progress</p>
-                <strong>Round 1 of 6 complete</strong>
+                <strong>Three impact goals underway</strong>
               </div>
               <span class="goal-percent" id="goal-percent">17%</span>
             </div>
             <div class="progress-track" role="progressbar" aria-label="Overall mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17">
               <span id="goal-bar" style="width: 17%"></span>
             </div>
-            <p id="goal-copy">The first round is seeded. Every 50 new Spotify followers unlocks the next round.</p>
+            <p id="goal-copy">50 trees planted. 50 people supported with clean water for a year. 52 pounds of ocean plastic removed.</p>
           </article>
         </div>
       </section>
