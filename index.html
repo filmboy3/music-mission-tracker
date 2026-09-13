@@ -26,10 +26,11 @@
         <span data-artist-name>Jonathan Schwartz</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#goals">Goals</a>
         <a href="#albums">Albums</a>
+        <a href="#goals">Impact</a>
+        <a href="#story">About</a>
       </nav>
-      <a class="header-cta" href="#listen">Listen <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#albums">Join the mission <span aria-hidden="true">↗</span></a>
     </header>
 
     <main id="top">
@@ -41,25 +42,49 @@
           <img src="assets/hero-banner.png" alt="Jonathan Schwartz outside a denim studio" class="hero-banner-img" fetchpriority="high" />
         </div>
         <div class="hero-inner">
-          <h1 id="hero-title">Your listens<br />have <em>weight.</em></h1>
+          <p class="hero-kicker">Jonathan Schwartz · Singer-songwriter · Former Broadway actor</p>
+          <h1 id="hero-title">Save playlists.<br /><em>Save the planet.</em></h1>
           <p class="hero-copy">
-            I donate personally on behalf of every person who engages with my music.
-            All streaming royalties go to conservation too. Your attention has real value.
+            Music has carried me all my life. Now every listen can carry something back—to the planet and to each other.
           </p>
           <div class="hero-actions" id="listen">
-            <a class="button button-primary" data-link="playlist" href="#albums">
-              Save the complete playlist <span aria-hidden="true">↗</span>
-            </a>
+            <a class="button button-primary" href="#albums">Join the mission <span aria-hidden="true">↓</span></a>
+            <a class="button button-quiet" data-link="spotify" href="#albums">Listen on Spotify <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
-      <!-- GOALS — simple, clean, expandable -->
+      <!-- ARTIST STORY -->
+      <section class="story" id="story" aria-labelledby="story-title">
+        <p class="section-label">Why I’m doing this</p>
+        <div>
+          <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
+          <div class="story-copy">
+            <p>I’m Jonathan Schwartz—a singer-songwriter and former Broadway actor, raised around music and musicians. Music has always been a source of healing, connection, and purpose for me.</p>
+            <p>The planet offers that same nourishment every day. At a moment when connection and action matter, this project brings the two together: sharing the music, growing a community, and turning that momentum into real, trackable environmental work. Streaming royalties support conservation, and every completed impact is recorded here.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALBUMS -->
+      <section class="albums" id="albums" aria-labelledby="albums-title">
+        <div class="albums-heading">
+          <p class="section-label">The Catalog</p>
+          <div>
+            <h2 id="albums-title">Four albums.<br />One growing mission.</h2>
+            <p class="albums-intro">Choose an album, save it where you listen, and stay connected as the impact grows.</p>
+          </div>
+        </div>
+        <div class="album-grid" id="album-grid"></div>
+      </section>
+
+      <!-- GOALS -->
       <section class="mission-goals" id="goals" aria-labelledby="mission-goals-title">
         <div class="mission-goals-heading">
-          <p class="section-label">The Mission</p>
+          <p class="section-label">The Impact</p>
           <div>
-            <h2 id="mission-goals-title">Three partners.<br />Real impact, already underway.</h2>
+            <h2 id="mission-goals-title">Three partners.<br />One growing impact.</h2>
+            <p>Each counter is tied to a confirmed outcome. Each bar tracks the same first mission—now 15% complete.</p>
           </div>
         </div>
 
@@ -70,31 +95,26 @@
             <div class="goal-topline">
               <div>
                 <p>Overall mission progress</p>
-                <strong>First round complete</strong>
+                <strong>Impact is underway</strong>
               </div>
               <span class="goal-percent" id="goal-percent">15%</span>
             </div>
             <div class="progress-track" role="progressbar" aria-label="Overall mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15">
-              <span id="goal-bar"></span>
+              <span id="goal-bar" style="width: 15%"></span>
             </div>
-            <p id="goal-copy">Three confirmed impact milestones are now on the board.</p>
+            <p id="goal-copy">Three confirmed outcomes. One shared mission.</p>
           </article>
         </div>
       </section>
 
-      <!-- ALBUMS -->
-      <section class="albums" id="albums" aria-labelledby="albums-title">
-        <div class="albums-heading">
-          <p class="section-label">The Catalog</p>
-          <h2 id="albums-title">Four albums.<br />All royalties donated.</h2>
-        </div>
-        <div class="album-grid" id="album-grid"></div>
-      </section>
-
       <!-- CLOSING CTA -->
       <section class="closing">
-        <h2>Save the playlist.<br /><em>The planet does the rest.</em></h2>
-        <a class="button button-sun" data-link="playlist" href="#albums">Save the complete playlist <span aria-hidden="true">↗</span></a>
+        <p class="section-label light">Join the mission</p>
+        <h2>Start with a save.<br /><em>Stay for the impact.</em></h2>
+        <div class="closing-actions">
+          <a class="button button-sun" data-link="spotify" href="#albums">Follow on Spotify <span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" data-link="apple_music" href="#albums">Listen on Apple Music <span aria-hidden="true">↗</span></a>
+        </div>
       </section>
     </main>
 

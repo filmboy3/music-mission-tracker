@@ -19,15 +19,15 @@ function render(data, stats) {
   });
   document.title = `${data.artist.name} — The Music Gives Back`;
 
-  document.querySelectorAll('[data-link="playlist"]').forEach((node) => {
-    const url = safeLink(data.links.playlist);
+  document.querySelectorAll("[data-link]").forEach((node) => {
+    const url = safeLink(data.links[node.dataset.link]);
     if (url) {
       node.href = url;
       node.target = "_blank";
       node.rel = "noopener noreferrer";
     } else {
       node.setAttribute("aria-disabled", "true");
-      node.title = "Playlist link coming soon";
+      node.title = "Link coming soon";
     }
   });
 
@@ -74,8 +74,8 @@ function render(data, stats) {
     card.innerHTML = `
       ${artwork ? `<img class="album-artwork" src="${artwork}" alt="${album.title} album cover" loading="lazy" width="1200" height="1200">` : ""}
       <div class="album-platforms" aria-label="Listen to ${album.title}">
-        ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>` : ""}
-        ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${album.title} on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>` : ""}
+        ${spotify ? `<a class="platform-link spotify-link" href="${spotify}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg><span>Spotify</span></a>` : ""}
+        ${appleMusic ? `<a class="platform-link apple-link" href="${appleMusic}" target="_blank" rel="noopener noreferrer" aria-label="Save ${album.title} on Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg><span>Apple Music</span></a>` : ""}
       </div>`;
     if (albumGrid) albumGrid.append(card);
   });
@@ -94,6 +94,8 @@ function render(data, stats) {
       <h3>${item.title}</h3>
       <p class="mission-goal-count"><strong>${current.toLocaleString()}</strong><span>${item.unit}</span></p>
       <p class="mission-goal-description">${item.description}</p>
+      <div class="mission-subprogress-label"><span>${current.toLocaleString()} ${item.unit}</span><strong>${percent}%</strong></div>
+      <div class="mission-subprogress" role="progressbar" aria-label="${item.title}: ${percent}% of first mission" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"><span style="width:${percent}%"></span></div>
       <div class="mission-goal-meta">
         <span>Confirmed ${item.date}</span>
         ${partnerUrl ? `<a href="${partnerUrl}" target="_blank" rel="noopener noreferrer">${item.partner} ↗</a>` : ""}

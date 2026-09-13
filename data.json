@@ -5,7 +5,7 @@
   "lastUpdated": "September 12, 2026",
   "goal": {
     "progressPercent": 15,
-    "message": "Three confirmed impact milestones are now on the board."
+    "message": "Three confirmed outcomes. One shared mission."
   },
   "links": {
     "playlist": "",
@@ -52,7 +52,7 @@
       "partner": "#TeamTrees",
       "partnerUrl": "https://teamtrees.org/",
       "logo": "assets/partners/team-trees.png",
-      "description": "Reforestation funded through #TeamTrees and the Arbor Day Foundation.",
+      "description": "Planted through #TeamTrees and the Arbor Day Foundation.",
       "date": "September 12, 2026"
     },
     {
@@ -62,7 +62,7 @@
       "partner": "#TeamWater",
       "partnerUrl": "https://teamwater.org/",
       "logo": "assets/partners/team-water.png",
-      "description": "A full year of clean-water access funded for 50 people through #TeamWater.",
+      "description": "One full year of clean-water access for 50 people through #TeamWater.",
       "date": "September 12, 2026"
     },
     {
@@ -72,7 +72,7 @@
       "partner": "Ocean Blue Project",
       "partnerUrl": "https://oceanblueproject.org/",
       "logo": "assets/partners/ocean-blue-project.png",
-      "description": "Microplastics removed from beaches, rivers, and waterways through Ocean Blue Project.",
+      "description": "Removed from beaches, rivers, and waterways through Ocean Blue Project.",
       "date": "September 12, 2026"
     }
   ]
