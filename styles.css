@@ -203,6 +203,9 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   .site-header { grid-template-columns: 1fr auto; }
   nav { display: none; }
   .hero { min-height: 760px; }
+  .hero-banner-img { object-position: 72% center; }
+  .hero-banner::after { background: linear-gradient(90deg, rgba(17,16,14,.95) 0%, rgba(28,20,18,.85) 40%, rgba(17,16,14,.3) 70%, transparent 100%); }
+  .hero-inner { width: min(640px, 90vw); margin: 0 auto; padding: clamp(150px, 16vh, 200px) max(6vw, 20px) 0; }
   .hero-statement { left: 28px; right: auto; }
   .manifesto, .story, .impact, .ledger { grid-template-columns: 1fr; }
   .story { gap: 24px; }
@@ -228,9 +231,9 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
 @media (max-width: 520px) {
   .site-header { padding: 20px; }
   .header-cta { display: none; }
-  .hero-banner-img { object-position: 83% center; }
-  .hero-banner::after { background: linear-gradient(180deg, rgba(17,16,14,.5), rgba(17,16,14,.72)); }
-  .hero-inner { width: auto; padding: 170px 20px 0; }
+  .hero-banner-img { object-position: 60% center; }
+  .hero-banner::after { background: linear-gradient(180deg, rgba(17,16,14,.75) 0%, rgba(17,16,14,.88) 100%); }
+  .hero-inner { width: 100%; padding: 140px 20px 0; }
   .hero-kicker { margin-left: 0; max-width: 340px; line-height: 1.5; }
   h1 { font-size: clamp(55px, 17vw, 78px); }
   .hero-copy { margin-left: 0; }
