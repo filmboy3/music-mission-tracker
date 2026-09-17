@@ -228,6 +228,10 @@ footer p { color: rgba(242,237,228,.4); font-size: 12px; }
   .footer-mark, .social-links { justify-self: center; }
 }
 
+@media (min-width: 821px) {
+  .hero-inner { width: min(540px, 50vw); margin: 0; padding: clamp(150px, 18vh, 205px) 0 0 max(6vw, 24px); }
+}
+
 @media (max-width: 520px) {
   .site-header { padding: 20px; }
   .header-cta { display: none; }
