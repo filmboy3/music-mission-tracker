@@ -3,50 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#17120f" />
-    <meta name="description" content="Trees planted. Clean water given. Ocean plastic removed. Every listen gives something back." />
+    <meta name="theme-color" content="#e85c24" />
+    <meta name="description" content="Giving the planet its groove back. Hundreds of trees to plant, hundreds of people to give clean water for a year, hundreds of pounds of ocean plastic to remove." />
     <meta property="og:title" content="Jonathan Schwartz — The Mission" />
-    <meta property="og:description" content="Giving the planet its groove back. Every listen gives something back." />
+    <meta property="og:description" content="Giving the planet its groove back. When you engage with my music, I give to the mission. Royalties too." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://filmboy3.github.io/music-mission-tracker/assets/hero-banner.png" />
     <title>Jonathan Schwartz — The Mission</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="preload" href="assets/hero-banner.png" as="image" />
-    <link rel="stylesheet" href="styles.css?v=6" />
-    <script src="script.js?v=6" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <script src="script.js?v=7" defer></script>
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
-
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Back to top">
         <span class="wordmark-mark" aria-hidden="true">JS</span>
         <span data-artist-name>Jonathan Schwartz</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#goals">Impact</a>
+        <a href="#goals">The goal</a>
+        <a href="#progress">Impact</a>
         <a href="#albums">Albums</a>
         <a href="#story">About</a>
       </nav>
-      <a class="header-cta" href="#albums">Join the mission <span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="#progress">See the impact</a>
     </header>
 
     <main id="top">
-      <!-- HERO — banner image + minimal copy -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="orb orb-one" aria-hidden="true"></div>
-        <div class="orb orb-two" aria-hidden="true"></div>
-        <div class="hero-banner">
-          <img src="assets/hero-banner.png" alt="Jonathan Schwartz outside a denim studio" class="hero-banner-img" fetchpriority="high" />
-        </div>
-        <div class="hero-inner">
-          <p class="hero-kicker">Jonathan Schwartz · Singer-songwriter · Former Broadway actor</p>
-          <h1 id="hero-title">Giving the planet its<br /><em>groove back.</em></h1>
-          <p class="hero-copy">Every listen gives something back—trees planted, water given, ocean plastic removed.</p>
+      <!-- HERO -->
+      <section class="hero on-orange" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h1 id="hero-title">Giving the <span class="mark">planet its</span> groove back</h1>
+          <p class="hero-copy">When you engage with my music, I give to the mission. Royalties too.</p>
           <div class="hero-actions" id="listen">
-            <a class="button button-primary" href="#albums">Join the mission <span aria-hidden="true">↓</span></a>
+            <a class="button" href="#progress">See the impact</a>
             <div class="platform-quick-links" aria-label="Listen to Jonathan Schwartz">
               <a class="platform-quick spotify-link" data-link="spotify" href="#albums" aria-label="Listen on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>
               <a class="platform-quick apple-link" data-link="apple_music" href="#albums" aria-label="Listen on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>
@@ -54,76 +46,73 @@
             </div>
           </div>
         </div>
+        <figure class="hero-planet">
+          <img src="assets/hero-banner.png" alt="Jonathan Schwartz outside a studio loading dock" fetchpriority="high" />
+        </figure>
       </section>
 
-      <!-- GOALS -->
-      <section class="mission-goals" id="goals" aria-labelledby="mission-goals-title">
-        <div class="mission-goals-heading">
-          <p class="section-label">The Impact</p>
-          <div>
-            <h2 id="mission-goals-title">300 trees.<br />300 people with clean water.<br />300 lbs of ocean plastic.</h2>
-            <p>Every new listener helps this community grow—and gives us more power to plant trees, provide clean water, and clear plastic from the ocean.</p>
-          </div>
+      <!-- THE GOAL -->
+      <section class="on-ink" id="goals" aria-labelledby="goals-title">
+        <p class="section-label">Music on a mission</p>
+        <h2 id="goals-title">What I’m playing for.</h2>
+        <div class="goal-list">
+          <div class="goal-line"><p>Hundreds of trees to plant.</p></div>
+          <div class="goal-line"><p>Hundreds of people to give clean water for a year.</p></div>
+          <div class="goal-line"><p>Hundreds of pounds of ocean plastic to remove.</p></div>
         </div>
+      </section>
+
+      <!-- WE ARE HERE -->
+      <section class="on-bone" id="progress" aria-labelledby="progress-title">
+        <p class="section-label">Where it stands</p>
+        <h2 id="progress-title">We are here.</h2>
+        <p class="note" style="margin-top: 22px; max-width: 58ch;">300 of each is the goal. These are the confirmed donations so far, with the organization that received each one.</p>
 
         <div class="mission-goal-grid" id="mission-goal-grid"></div>
 
         <div class="impact-dashboard">
-          <article class="goal-card">
-            <div class="goal-topline">
-              <div>
-                <p>Overall mission progress</p>
-                <strong>Three impact goals underway</strong>
-              </div>
-              <span class="goal-percent" id="goal-percent">17%</span>
+          <div class="goal-topline">
+            <div>
+              <p>Overall mission progress</p>
+              <strong>Three goals underway</strong>
             </div>
-            <div class="progress-track" role="progressbar" aria-label="Overall mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17">
-              <span id="goal-bar" style="width: 17%"></span>
-            </div>
-            <p id="goal-copy">50 trees planted. 50 people supported with clean water for a year. 52 pounds of ocean plastic removed.</p>
-          </article>
+            <span class="goal-percent" id="goal-percent">17%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Overall mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17">
+            <span id="goal-bar" style="width: 17%"></span>
+          </div>
+          <p id="goal-copy">50 trees planted. 50 people supported with clean water for a year. 52 pounds of ocean plastic removed.</p>
         </div>
       </section>
 
       <!-- ALBUMS -->
-      <section class="albums" id="albums" aria-labelledby="albums-title">
-        <div class="albums-heading">
-          <p class="section-label">The Catalog</p>
-          <div>
-            <h2 id="albums-title">Four albums.<br />One growing mission.</h2>
-            <p class="albums-intro">Choose an album, save it where you listen, and stay connected as the impact grows.</p>
-          </div>
-        </div>
+      <section class="on-ink" id="albums" aria-labelledby="albums-title">
+        <p class="section-label">The catalog</p>
+        <h2 id="albums-title">New albums.<br />Fully for charity.</h2>
         <div class="album-grid" id="album-grid"></div>
+        <p class="album-titles">Burn Bright · Overexposed · Amplify · Timelines</p>
       </section>
 
-      <!-- ARTIST STORY -->
-      <section class="story" id="story" aria-labelledby="story-title">
+      <!-- STORY -->
+      <section class="on-bone" id="story" aria-labelledby="story-title">
         <p class="section-label">Why I’m doing this</p>
-        <div>
-          <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
-          <div class="story-copy">
-            <p>I spent nearly a decade on Broadway across three shows—and 50+ musicals before that, going back to childhood. Eventually I wanted to write and sing something that was mine. So I taught myself production from scratch and made four albums.</p>
-            <p>Somewhere in there, I started paying closer attention to the good happening in the world—and wanted my music to be part of it, not separate from it. A share of what this project makes goes toward trees planted, clean water given, and ocean plastic removed.</p>
-            <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
-          </div>
-            <p class="story-footnote">All streaming royalties are donated too, separately, through DistroKid.</p>
-          </div>
+        <h2 id="story-title">Music gave me a way through.<br />This is how I give something back.</h2>
+        <div class="story-copy">
+          <p>A debilitating injury put a guitar in my hands. I had to sit still for the first time in years, and I found I loved writing. 100+ songs later, I’m still following wherever the music takes me.</p>
+          <p>I spent nearly a decade on Broadway across three shows — and 50+ musicals before that, going back to childhood. Eventually I wanted to write and sing something that was mine, so I taught myself production from scratch.</p>
+          <p>Somewhere in there I started paying closer attention to the good happening in the world, and wanted my music to be part of it rather than separate from it. I’m putting my own money where my microphone is.</p>
+          <p class="story-footnote">All streaming royalties are donated separately, through DistroKid. The mission goals above are funded personally.</p>
         </div>
       </section>
 
-      <!-- SPOTIFY AUDIENCE -->
-      <section class="audience" id="audience" aria-labelledby="audience-title">
-        <div class="audience-heading">
-          <p class="section-label light">The audience</p>
-          <div>
-            <h2 id="audience-title"><span id="monthly-listeners">45.2K</span> monthly listeners.</h2>
-            <p>Every listen grows the community behind the mission. Reaching <strong id="monthly-target-copy">50K</strong> monthly listeners is the next trigger for more trees, clean water, and ocean cleanup.</p>
-          </div>
-        </div>
+      <!-- AUDIENCE -->
+      <section class="on-orange" id="audience" aria-labelledby="audience-title">
+        <p class="section-label">The audience</p>
+        <h2 id="audience-title"><span id="monthly-listeners">45.2K</span> monthly listeners.</h2>
+        <p class="note" style="margin-top: 24px; max-width: 62ch; color: inherit;">Context, not a mission metric — the impact bars above move only on confirmed donations, never on plays.</p>
         <div class="audience-meter">
           <div class="audience-meter-label">
-            <span>Current audience</span>
+            <span>Next audience milestone</span>
             <strong><span id="monthly-listeners-exact">45,153</span> / <span id="monthly-listener-target">50,000</span></strong>
           </div>
           <div class="audience-progress" id="audience-progress" role="progressbar" aria-label="Spotify monthly listeners toward the next audience milestone" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="45153">
@@ -136,10 +125,10 @@
         </div>
       </section>
 
-      <!-- CLOSING CTA -->
-      <section class="closing">
-        <p class="section-label light">Join the mission</p>
-        <h2>Start with a save.<br /><em>Stay for the impact.</em></h2>
+      <!-- CLOSING -->
+      <section class="closing on-ink">
+        <p class="section-label">Join the mission</p>
+        <h2>Reaching out my hand.<br />Maybe you’re reaching back.</h2>
         <div class="closing-actions" aria-label="Listen to Jonathan Schwartz">
           <a class="platform-quick spotify-link" data-link="spotify" href="#albums" aria-label="Listen on Spotify" title="Spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 9.2c3.5-1 7.6-.7 10.5.9M7.8 12.2c2.9-.8 6.3-.5 8.8.8M8.6 15.1c2.2-.6 4.8-.3 6.8.7"/></svg></a>
           <a class="platform-quick apple-link" data-link="apple_music" href="#albums" aria-label="Listen on Apple Music" title="Apple Music"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.8 7.2v8.1a2.2 2.2 0 1 1-1-1.8V9.4l-5 1.1v5.8a2.2 2.2 0 1 1-1-1.8V9.1z"/></svg></a>
@@ -149,7 +138,7 @@
     </main>
 
     <footer>
-      <a class="wordmark footer-mark" href="#top"><span class="wordmark-mark">JS</span><span data-artist-name>Jonathan Schwartz</span></a>
+      <a class="wordmark footer-mark" href="#top"><span class="wordmark-mark" aria-hidden="true">JS</span><span data-artist-name>Jonathan Schwartz</span></a>
       <p>Music that gives back. Always.</p>
       <div class="social-links" id="social-links"></div>
     </footer>
